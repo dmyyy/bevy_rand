@@ -296,7 +296,7 @@ mod tests {
     #[test]
     fn rng_untyped_serialization() {
         use bevy::reflect::{
-            serde::{ReflectSerializer, ReflectDeserializer},
+            serde::{ReflectDeserializer, ReflectSerializer},
             TypeRegistry,
         };
         use ron::to_string;
