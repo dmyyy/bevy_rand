@@ -3,7 +3,7 @@ use std::marker::PhantomData;
 use bevy::{
     app::App,
     ecs::system::Resource,
-    reflect::{FromReflect, GetTypeRegistration, Reflect, TypePath},
+    reflect::{FromReflect, GetTypeRegistration, Reflect, TypePath, Typed},
 };
 use bevy_prng::SeedableEntropySource;
 use rand_core::RngCore;
@@ -30,7 +30,7 @@ pub struct GlobalRngSeed<R: SeedableEntropySource> {
 
 impl<R: SeedableEntropySource> GlobalRngSeed<R>
 where
-    R::Seed: Sync + Send + Clone + Reflect + GetTypeRegistration + FromReflect + TypePath,
+    R::Seed: Sync + Send + Clone + Reflect + GetTypeRegistration + FromReflect + TypePath + Typed,
 {
     /// Helper method to register the necessary types for [`Reflect`] purposes. Ensures
     /// that not only the main type is registered, but also the correct seed type for the

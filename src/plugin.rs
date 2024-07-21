@@ -1,7 +1,7 @@
 use crate::{component::EntropyComponent, resource::GlobalEntropy, seed::GlobalRngSeed};
 use bevy::{
     prelude::{App, Plugin},
-    reflect::{FromReflect, GetTypeRegistration, Reflect, TypePath},
+    reflect::{FromReflect, GetTypeRegistration, Reflect, TypePath, Typed},
 };
 use bevy_prng::SeedableEntropySource;
 
@@ -62,9 +62,9 @@ where
     }
 }
 
-impl<R: SeedableEntropySource + 'static> Plugin for EntropyPlugin<R>
+impl<R: SeedableEntropySource + 'static + Typed> Plugin for EntropyPlugin<R>
 where
-    R::Seed: Send + Sync + Clone + Reflect + FromReflect + GetTypeRegistration + TypePath,
+    R::Seed: Send + Sync + Clone + Reflect + FromReflect + GetTypeRegistration + TypePath + Typed,
 {
     fn build(&self, app: &mut App) {
         app.register_type::<GlobalEntropy<R>>()
