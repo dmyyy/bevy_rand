@@ -11,7 +11,7 @@ version = "0.7.1"
 rust-version = "1.76.0"
 
 [workspace.dependencies]
-bevy = { git = "https://github.com/bevyengine/bevy" }
+bevy = { git = "https://github.com/bevyengine/bevy", rev = "52a2a3b146d11fe57b82124fc59b54989d28ad4a" }
 serde = "1"
 serde_derive = "1"
 rand_core = { version = "0.6", features = ["std"] }
