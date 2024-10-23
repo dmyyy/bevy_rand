@@ -14,13 +14,13 @@ rust-version = { workspace = true }
 [features]
 default = ["serialize"]
 serialize = [
-  "dep:serde",
-  "dep:serde_derive",
-  "rand_core/serde1",
-  "rand_chacha?/serde1",
-  "rand_pcg?/serde1",
-  "rand_xoshiro?/serde1",
-  "wyrand?/serde1",
+    "dep:serde",
+    "dep:serde_derive",
+    "rand_core/serde1",
+    "rand_chacha?/serde1",
+    "rand_pcg?/serde1",
+    "rand_xoshiro?/serde1",
+    "wyrand?/serde1",
 ]
 
 [dependencies]
